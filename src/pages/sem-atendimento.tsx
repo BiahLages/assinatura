@@ -55,7 +55,7 @@ function SemAtendimento() {
               <FormLabel>Data de Nascimento</FormLabel>
               <Input name="dataNascimento" value={formData.dataNascimento} onChange={handleChange} type="date" placeholder='Digite sua data de nascimento'></Input>
             </FormControl>
-            <Button colorScheme="green" onClick={handleConfirm}>
+            <Button colorScheme="green" mb={10} onClick={handleConfirm}>
               Confirmar
             </Button>
           </Box>

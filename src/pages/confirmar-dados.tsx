@@ -41,7 +41,7 @@ function ConfirmarDados() {
               </Box>
             </Box>
             <Link to={"/selecionar-documentos"}>
-            <Button colorScheme="green">Confirmar</Button>
+            <Button colorScheme="green" mb={10}>Confirmar</Button>
             </Link>
           </Box>
         </Center>

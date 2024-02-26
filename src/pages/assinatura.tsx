@@ -16,7 +16,7 @@ function Assinatura() {
       <Header />
       <Box p={4}>
         <Center>
-          <Box textAlign="center">
+          <Box  textAlign="center">
             <Text fontSize="3xl" fontWeight="bold" mb={2}>
               Assinatura digital de documentos
             </Text>

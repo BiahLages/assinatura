@@ -14,16 +14,16 @@ function LerContrato() {
   return (
     <ChakraProvider>
       <Header />
-      <Box p={4}>
+      <Box p={4}  maxW="100%" mx="auto">
         <Center>
-          <Box textAlign="center">
+          <Box textAlign="center"  maxW="100%" mx="auto">
             <Text fontSize="3xl" fontWeight="bold" mb={2}>
               Assinatura digital de documentos
             </Text>
             <Text fontSize="lg" mb={6}>
               Contrato 1
             </Text>
-            <Box width={'800px'} borderWidth='2px' borderRadius='2xl' overflow='hidden' p={4} mb={6}>
+            <Box maxW={{ base: "100%", md: "800px" }} borderWidth='2px' borderRadius='xl' overflow='hidden' p={4} mb={6}>
             <Text>
               {" "}
               Lorem ipsum ad in nam orci inceptos etiam curabitur luctus justo,
