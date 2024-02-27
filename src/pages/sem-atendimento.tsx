@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Center, ChakraProvider, Input, Text, FormControl, FormLabel, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from '@chakra-ui/react';
+import { Box, Button, Center, ChakraProvider, Input, Text, FormControl, FormLabel, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Checkbox } from '@chakra-ui/react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,15 @@ function SemAtendimento() {
     cpf: '',
     dataNascimento: ''
   });
+  const [opcoesSelecionadas, setOpcoesSelecionadas] = useState<string[]>([]);
+
+  const handleOpcaoSelecionada = (opcao: string) => {
+    if (opcoesSelecionadas.includes(opcao)) {
+      setOpcoesSelecionadas(opcoesSelecionadas.filter(item => item !== opcao));
+    } else {
+      setOpcoesSelecionadas([...opcoesSelecionadas, opcao]);
+    }
+  };
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -44,16 +53,17 @@ function SemAtendimento() {
               Preencha os campos abaixo:
             </Text>
             <FormControl mb={4}>
-              <FormLabel>Nome</FormLabel>
-              <Input name="nome" value={formData.nome} onChange={handleChange} placeholder='Digite seu nome'></Input>
+              <FormLabel>Código do paciente</FormLabel>
+              <Input name="nome" value={formData.nome} onChange={handleChange} placeholder='Digite o código'></Input>
             </FormControl>
             <FormControl mb={4}>
-              <FormLabel>CPF</FormLabel>
-              <Input name="cpf" value={formData.cpf} onChange={handleChange} placeholder='Digite seu CPF'></Input>
+              <FormLabel>Código do responsável</FormLabel>
+              <Input name="cpf" value={formData.cpf} onChange={handleChange} placeholder='Digite o código'></Input>
             </FormControl>
             <FormControl mb={4}>
-              <FormLabel>Data de Nascimento</FormLabel>
-              <Input name="dataNascimento" value={formData.dataNascimento} onChange={handleChange} type="date" placeholder='Digite sua data de nascimento'></Input>
+            <Checkbox isChecked={opcoesSelecionadas.includes("opcao1")} onChange={() => handleOpcaoSelecionada("opcao1")}>
+                  Selecione se o paciente for o responsável
+                </Checkbox>
             </FormControl>
             <Button colorScheme="green" mb={10} onClick={handleConfirm}>
               Confirmar
@@ -64,12 +74,12 @@ function SemAtendimento() {
       <Modal isOpen={isOpen} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Confirme suas informações</ModalHeader>
+          <ModalHeader>Confirme as informações</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text>Nome: {formData.nome}</Text>
-            <Text>CPF: {formData.cpf}</Text>
-            <Text>Data de Nascimento: {formData.dataNascimento}</Text>
+            <Text>Nome: Fulano Beltrano da Silva</Text>
+            <Text>CPF: 111.111.111-11</Text>
+            <Text>Data de Nascimento:01/01/1990</Text>
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={handleClose}>

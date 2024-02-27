@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Center, ChakraProvider, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Center, ChakraProvider, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, VStack } from '@chakra-ui/react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -35,15 +35,19 @@ function Assinatura() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
+          <VStack>
           <ModalHeader>Assinatura Confirmada</ModalHeader>
+          
           <ModalBody>
-            Os documentos foram assinados com sucesso.
+            Documentos assinados com sucesso e anexados ao prontuário.
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="green" mr={3} onClick={onClose}>
               Fechar
             </Button>
+            
           </ModalFooter>
+          </VStack>
         </ModalContent>
       </Modal>
 
