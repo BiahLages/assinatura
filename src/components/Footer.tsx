@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       justify="space-between"
       width="100%"
       py={4}
-      bg="blue.800"
+      bg="#a0a7c8"
       color="white"
       position="fixed"
       bottom={0}
